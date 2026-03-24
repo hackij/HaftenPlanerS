@@ -115,8 +115,8 @@ button:hover {
 .banner-logo--app {
   top: 14px;
   right: 18px;
-  mix-blend-mode: multiply;
-  opacity: 0.98;
+  opacity: 1;
+  clip-path: inset(6px 6px 6px 6px round 28px);
 }
 
 #welcome-banner {
@@ -2778,6 +2778,7 @@ body[data-theme='dark'] .roof-zone-visualization {
     width: clamp(72px, 22vw, 108px);
     top: 10px;
     right: 10px;
+    clip-path: inset(4px 4px 4px 4px round 22px);
   }
 
   .start-button {
