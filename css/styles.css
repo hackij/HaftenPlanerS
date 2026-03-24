@@ -113,7 +113,7 @@ button:hover {
 }
 
 .banner-logo--app {
-  top: 14px;
+  top: 30px;
   right: 18px;
   opacity: 1;
 }
@@ -2932,7 +2932,7 @@ body[data-theme='dark'] .roof-zone-visualization {
 
   .banner-logo--app {
     width: clamp(72px, 22vw, 108px);
-    top: 10px;
+    top: 22px;
     right: 10px;
   }
 

@@ -550,29 +550,8 @@ function getStepContent(stepId) {
             <div class="formula-box"><strong>Formel 2</strong><div class="formula">e = b</div></div>
           </div>
           <p>Anschließend werden beide Ergebnisse verglichen. 👉 Der kleinere Wert ist maßgebend und wird als Maß <strong>e</strong> verwendet.</p>
+          <p>Mit dem Maß <strong>e</strong> lassen sich nun die Randbereiche genauer bestimmen: Die Länge des Randbereichs ergibt sich aus <strong>e / 4</strong>, die Breite des Randbereichs aus <strong>e / 10</strong>. Dazu wird der ermittelte Wert für <strong>e</strong> einfach einmal durch 4 und einmal durch 10 geteilt.</p>
           <p>👉 <strong>Bedeutung für die Praxis:</strong> Mit dem ermittelten e-Wert können im nächsten Schritt die Randbereiche am Dach festgelegt werden. Diese bilden die Grundlage für die Auswahl der richtigen Haftabstände.</p>
-          <div class="interactive-panel">
-            <div class="input-grid">
-              <label>Anhand von unserem Beispielgebäude entscheide ich mich für e =
-                <input id="e-choice" type="text" inputmode="decimal" placeholder="e" />
-              </label>
-              <label>Länge Randbereich (e / 4):
-                <input id="e-quarter" type="text" inputmode="decimal" placeholder="e / 4" />
-              </label>
-              <label>Breite Randbereich (e / 10):
-                <input id="e-tenth" type="text" inputmode="decimal" placeholder="e / 10" />
-              </label>
-            </div>
-            <p class="input-hint">Berechne zuerst das Maß e und leite daraus die Breite und Länge der Randbereiche ab.</p>
-            <div class="button-row">
-              <button class="primary-btn" id="calculate-e" type="button">Ergebnis prüfen</button>
-            </div>
-            <label class="result-check">
-              <input id="e-correct" type="checkbox" disabled />
-              <span>Ergebnis korrekt</span>
-            </label>
-            <p id="e-feedback"></p>
-          </div>
           <div class="button-row">${nextButton('schritt-9')}</div>
         </div>
         <div class="step5-reference">
@@ -676,7 +655,7 @@ function getStepContent(stepId) {
         <div class="step8-h5p">
           <div class="exercise-section-heading">
             <h3>3. Haftbereiche festlegen</h3>
-            <p>Definieren Sie die Haftbereiche am Dach.</p>
+            <p>Definieren Sie die Haftbereiche am Dach. Schieben Sie hierfür die richtigen Buchstaben in die entsprechenden Bereiche in der Abbildung.</p>
           </div>
           <iframe src="Festlegung_der_Randbereiche.html" class="h5p-frame" title="Übung zur Festlegung der Randbereiche"></iframe>
         </div>
