@@ -10,6 +10,11 @@ const labels = {
   'dein-ablauf': '9'
 };
 
+const navSubtitles = {
+  'schritt-10': 'Übung',
+  'dein-ablauf': 'Checkliste'
+};
+
 let navRoot;
 
 function initNavigation(container, steps, onNavigate) {
@@ -17,13 +22,26 @@ function initNavigation(container, steps, onNavigate) {
   navRoot.innerHTML = '';
 
   steps.forEach((step) => {
+    const item = document.createElement('div');
+    item.className = 'step-nav__item';
+
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'step-nav__button';
     button.dataset.step = step;
     button.textContent = labels[step] ?? step;
     button.addEventListener('click', () => onNavigate(step));
-    navRoot.appendChild(button);
+
+    item.appendChild(button);
+
+    if (navSubtitles[step]) {
+      const subtitle = document.createElement('span');
+      subtitle.className = 'step-nav__subtitle';
+      subtitle.textContent = navSubtitles[step];
+      item.appendChild(subtitle);
+    }
+
+    navRoot.appendChild(item);
   });
 }
 
@@ -149,6 +167,9 @@ function bindPitchLogic() {
   const eaves = document.getElementById('pitch-zone-eaves');
   const verge = document.getElementById('pitch-zone-verge');
   const corner = document.getElementById('pitch-zone-corner');
+  const surfaceRow = document.getElementById('pitch-row-surface');
+  const eavesRow = document.getElementById('pitch-row-eaves');
+  const vergeRow = document.getElementById('pitch-row-verge');
   const example = document.getElementById('pitch-example');
 
   if (!input || !value || !output) return;
@@ -163,6 +184,9 @@ function bindPitchLogic() {
       if (eaves) eaves.textContent = 'F';
       if (verge) verge.textContent = 'G';
       if (corner) corner.textContent = 'Fhoch';
+      if (surfaceRow) surfaceRow.classList.add('is-shifted');
+      if (eavesRow) eavesRow.classList.add('is-shifted');
+      if (vergeRow) vergeRow.classList.add('is-shifted');
       if (example) {
         example.textContent = 'Beispiel über 30°: An der Traufseite wird nun F angenommen, da dies ab einer Neigung größer 30° gilt. Am Ortgang kann G angesetzt werden.';
       }
@@ -174,6 +198,9 @@ function bindPitchLogic() {
     if (eaves) eaves.textContent = 'G';
     if (verge) verge.textContent = 'F';
     if (corner) corner.textContent = 'Fhoch';
+    if (surfaceRow) surfaceRow.classList.remove('is-shifted');
+    if (eavesRow) eavesRow.classList.remove('is-shifted');
+    if (vergeRow) vergeRow.classList.remove('is-shifted');
     if (example) {
       example.textContent = 'Beispiel 20°: An der Traufseite nimmst du G. Am Ortgang nimmst du F, weil G dort nur bei Dachneigungen über 30° gilt.';
     }
@@ -366,7 +393,10 @@ function getStepContent(stepId) {
                   <strong id="building-height-value">9 m</strong>
                 </div>
               </div>
-              <input id="building-height-slider" class="height-slider" type="range" min="5" max="55" step="1" value="9" aria-label="Gebäudehöhe einstellen" />
+              <div class="height-slider-wrap">
+                <span class="height-slider-hint">Ziehen</span>
+                <input id="building-height-slider" class="height-slider" type="range" min="5" max="55" step="1" value="9" aria-label="Gebäudehöhe einstellen" />
+              </div>
             </div>
           </div>
           <div class="info-inline">
@@ -387,13 +417,15 @@ function getStepContent(stepId) {
             <p><strong>ℹ️ Das bedeutet:</strong> Bei breiteren Scharen stehen weniger Befestigungsmöglichkeiten pro Fläche zur Verfügung. Damit die Dachdeckung trotzdem sicher gegen Windsog befestigt ist, müssen die Haftabstände kleiner gewählt werden.</p>
             <p>Die Scharbreite beeinflusst also direkt die Haftabstände. Wie groß diese Abstände genau sein dürfen, wird später anhand von Tabellen aus den Fachregeln bestimmt.</p>
           </div>
-          <div class="result-box expandable-example" data-example-expand="true">
-            <span class="image-click-badge example-click-badge">Klick</span>
+          <div class="result-box">
             <h3 class="result-box__title">Beispiel</h3>
             <p>Für dieselbe Dachfläche muss immer eine ausreichende Anzahl an Haften vorhanden sein, damit die Dachdeckung sicher gegen Windsog befestigt ist.</p>
             <p>Werden breitere Scharen verwendet, stehen auf derselben Fläche weniger Befestigungspunkte zur Verfügung.</p>
             <p class="callout">Deshalb gilt: Je größer die Scharbreite, desto kleiner müssen die Haftabstände gewählt werden.</p>
-            <img src="assets/images/Haften pro Schar.jpg" class="example-image" alt="Beispiel zur Verteilung von Haften pro Schar" />
+            <div class="example-image-wrap">
+              <span class="image-click-badge example-click-badge">Klick</span>
+              <img src="assets/images/Haften pro Schar.jpg" class="example-image guide-image lightbox-image" alt="Beispiel zur Verteilung von Haften pro Schar" />
+            </div>
           </div>
         </div>
         <div class="button-row">${nextButton('schritt-4')}</div>
@@ -440,13 +472,14 @@ function getStepContent(stepId) {
           <div class="step5-tools">
             <div class="result-box zone-summary">
               <h3 class="result-box__title">Zuordnung für später</h3>
-              <div class="zone-summary__row"><span>Flächenbereich</span><span class="zone-badge" id="pitch-zone-surface">J</span></div>
-              <div class="zone-summary__row"><span>Randbereich Traufseite</span><span class="zone-badge" id="pitch-zone-eaves">G</span></div>
-              <div class="zone-summary__row"><span>Randbereich Ortgang</span><span class="zone-badge" id="pitch-zone-verge">F</span></div>
+              <div class="zone-summary__row" id="pitch-row-surface"><span>Flächenbereich</span><span class="zone-badge" id="pitch-zone-surface">J</span></div>
+              <div class="zone-summary__row" id="pitch-row-eaves"><span>Randbereich Traufseite</span><span class="zone-badge" id="pitch-zone-eaves">G</span></div>
+              <div class="zone-summary__row" id="pitch-row-verge"><span>Randbereich Ortgang</span><span class="zone-badge" id="pitch-zone-verge">F</span></div>
               <div class="zone-summary__row"><span>Eckbereich</span><span class="zone-badge" id="pitch-zone-corner">Fhoch</span></div>
             </div>
             <div class="interactive-panel pitch-panel">
               <label for="roof-pitch">Dachneigung</label>
+              <p class="pitch-observe">Ziehe den Regler über <strong>30°</strong> und beobachte, wie sich die Randbereiche verändern.</p>
               <div class="pitch-slider-wrap">
                 <input id="roof-pitch" type="range" min="5" max="45" step="1" value="20" />
                 <div class="pitch-threshold" aria-hidden="true">
@@ -570,7 +603,7 @@ function getStepContent(stepId) {
       <div class="step8-container">
         <div class="step8-text">
           <span class="step-tag">Schritt 8</span>
-          <h2 class="step-title">✍️ Jetzt bist du dran</h2>
+          <h2 class="step-title">✍️ Übung</h2>
           <p>Wende dein Wissen jetzt selbst an.</p>
           <p>Erstelle für das Beispielgebäude einen Haftenverlegeplan.</p>
           <p>Nutze dazu die folgende Übung und überprüfe anschließend deine Ergebnisse.</p>
@@ -618,8 +651,8 @@ function getStepContent(stepId) {
     'dein-ablauf': `
       <div class="final-grid">
         <div class="step-copy">
-          <span class="step-tag">Abschluss</span>
-          <h2 class="step-title">Dein persönlicher Ablauf</h2>
+          <span class="step-tag">Schritt 9</span>
+          <h2 class="step-title">✅ Checkliste</h2>
           <p>Jetzt geht es darum, aus dem Beispiel deinen eigenen klaren Arbeitsablauf abzuleiten. Nicht einzelne Zahlen sind am wichtigsten, sondern die Reihenfolge deiner Gedanken.</p>
           <p>Wenn du Aufgaben zum Haftenverlegeplan löst, solltest du die Schritte sicher und in sinnvoller Reihenfolge abrufen können.</p>
           <p class="callout">Formuliere diese Struktur später in deinen eigenen Worten. Dann merkst du sie dir leichter und kannst sie auch in neuen Aufgaben anwenden.</p>
