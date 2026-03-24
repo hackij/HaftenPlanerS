@@ -2063,10 +2063,7 @@ body.dark-mode .step4-graphic {
 }
 
 .exercise-brief {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
-  gap: 22px;
-  align-items: stretch;
+  display: block;
 }
 
 .exercise-brief__image,
@@ -2082,20 +2079,29 @@ body.dark-mode .step4-graphic {
   justify-content: center;
   padding: 18px;
   overflow: hidden;
+  max-width: 920px;
+  margin: 0 auto;
 }
 
 .exercise-brief__image img {
   width: 100%;
   height: auto;
-  max-height: 420px;
+  max-height: none;
   min-height: 0;
   object-fit: contain;
   display: block;
   margin: 0;
 }
 
+.exercise-brief__intro {
+  margin: 14px 0 0;
+  text-align: left;
+}
+
 .exercise-brief__facts {
   padding: 22px;
+  max-width: 920px;
+  margin: 0 auto;
 }
 
 .exercise-brief__facts h3,
@@ -2886,10 +2892,6 @@ body[data-theme='dark'] .roof-zone-visualization {
     height: 640px;
   }
 
-  .exercise-brief {
-    grid-template-columns: 1fr;
-  }
-
   .choice-group {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -3069,7 +3071,7 @@ body[data-theme='dark'] .roof-zone-visualization {
   }
 
   .exercise-brief__image img {
-    max-height: 280px;
+    max-height: none;
     min-height: 0;
   }
 
