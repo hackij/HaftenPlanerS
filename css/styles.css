@@ -103,7 +103,7 @@ button:hover {
   height: auto;
   display: block;
   object-fit: contain;
-  filter: drop-shadow(0 10px 18px rgba(15, 23, 42, 0.14));
+  filter: none;
 }
 
 .banner-logo--welcome {
@@ -361,14 +361,14 @@ body.dark-mode .hero-steps-label {
   min-height: 42px;
   padding: 10px 14px;
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.05)),
-    rgba(187, 204, 224, 0.18);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.12)),
+    rgba(202, 215, 232, 0.28);
   backdrop-filter: blur(10px);
   border-radius: 12px;
   color: rgba(17, 24, 39, 0.96);
-  border: 1px solid rgba(238, 244, 252, 0.34);
+  border: 1px solid rgba(244, 248, 253, 0.44);
   font-weight: 600;
-  box-shadow: 0 10px 22px rgba(58, 72, 89, 0.08);
+  box-shadow: 0 10px 22px rgba(58, 72, 89, 0.1);
   transition: all 0.25s ease;
   transform: scale(1);
 }
@@ -376,8 +376,8 @@ body.dark-mode .hero-steps-label {
 .hero-steps .step-nav__button:hover,
 .hero-steps .step-nav__button:focus-visible {
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.08)),
-    rgba(187, 204, 224, 0.24);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.16)),
+    rgba(202, 215, 232, 0.34);
   color: #111827;
   outline: none;
   transform: scale(1.05);
@@ -2024,8 +2024,8 @@ body.dark-mode .step4-graphic {
 .h5p-frame {
   width: 100%;
   max-width: 820px;
-  min-height: 920px;
-  height: 920px;
+  min-height: 760px;
+  height: 760px;
   border: none;
   margin: 20px auto;
   display: block;
@@ -2731,8 +2731,8 @@ body[data-theme='dark'] .roof-zone-visualization {
 
   .h5p-frame {
     max-width: 100%;
-    min-height: 980px;
-    height: 980px;
+    min-height: 640px;
+    height: 640px;
   }
 }
 
@@ -2851,10 +2851,10 @@ body[data-theme='dark'] .roof-zone-visualization {
     border-radius: 10px;
     font-size: 1rem;
     background:
-      linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.04)),
-      rgba(187, 204, 224, 0.2);
-    border-color: rgba(238, 244, 252, 0.28);
-    box-shadow: 0 8px 16px rgba(58, 72, 89, 0.06);
+      linear-gradient(135deg, rgba(255, 255, 255, 0.36), rgba(255, 255, 255, 0.12)),
+      rgba(202, 215, 232, 0.3);
+    border-color: rgba(244, 248, 253, 0.38);
+    box-shadow: 0 8px 16px rgba(58, 72, 89, 0.08);
   }
 
   .step-nav__item {
