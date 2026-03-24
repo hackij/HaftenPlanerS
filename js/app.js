@@ -724,9 +724,6 @@ function getStepContent(stepId) {
           <p>Jetzt geht es darum, aus dem Beispiel deinen eigenen klaren Arbeitsablauf abzuleiten. Nicht einzelne Zahlen sind am wichtigsten, sondern die Reihenfolge deiner Gedanken.</p>
           <p>Wenn du Aufgaben zum Haftenverlegeplan löst, solltest du die Schritte sicher und in sinnvoller Reihenfolge abrufen können.</p>
           <p class="callout">Formuliere diese Struktur später in deinen eigenen Worten. Dann merkst du sie dir leichter und kannst sie auch in neuen Aufgaben anwenden.</p>
-          <div class="button-row">
-            <button class="ghost-btn" type="button" data-go-to="start">Zurück zum Start</button>
-          </div>
         </div>
         <div class="checklist-box">
           <h3 class="checklist__title">Checkliste für deinen Ablauf</h3>
@@ -740,6 +737,9 @@ function getStepContent(stepId) {
             <li><label class="checklist-item"><input type="checkbox" /> <span>Haftabstände pro Dachbereich in der Tabelle nachschlagen</span></label></li>
           </ol>
           <p class="footer-note">Tipp: Schreibe dir diesen Ablauf einmal selbst auf und sprich ihn laut durch. So entsteht deine eigene sichere Arbeitsstruktur.</p>
+          <div class="button-row button-row--final">
+            <button class="ghost-btn ghost-btn--danger" type="button" data-go-to="start">Zurück zum Start</button>
+          </div>
         </div>
       </div>
     `
