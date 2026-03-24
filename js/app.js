@@ -1043,6 +1043,7 @@ const state = {
 };
 
 let stepContent;
+const attributionNote = 'Entwickelt von Jan Hacker · gewerblich-technische Universitätsberufsschule Bayreuth';
 const exampleDataByStep = {
   'schritt-1': ['Pultdach', 'Windzone: 1'],
   'schritt-2': ['Pultdach', 'Windzone: 1', 'Gebäudehöhe: 9 m', 'Längste Gebäudekante: 10 m'],
@@ -1071,7 +1072,7 @@ function renderStep(stepId) {
   stepContent.classList.toggle('no-example', hideExample);
 
   stepContent.classList.remove('fade-enter');
-  stepContent.innerHTML = `<div class="step"><div class="step-inner">${getStepContent(stepId)}</div></div>`;
+  stepContent.innerHTML = `<div class="step"><div class="step-inner">${getStepContent(stepId)}<p class="footer-note">${attributionNote}</p></div></div>`;
   requestAnimationFrame(() => stepContent.classList.add('fade-enter'));
 
   bindGlobalStepControls();
