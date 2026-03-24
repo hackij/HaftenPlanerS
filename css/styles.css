@@ -86,9 +86,12 @@ button:hover {
 }
 
 .image-container {
-  position: relative;
   max-width: 1200px;
   width: 100%;
+}
+
+.welcome-stage {
+  position: relative;
 }
 
 #welcome-banner {
@@ -133,6 +136,20 @@ button:hover {
 }
 
 .landing-credit p {
+  margin: 2px 0;
+  max-width: none;
+}
+
+.app-footer {
+  margin-top: 18px;
+  padding: 4px 2px 0;
+  text-align: center;
+  color: rgba(85, 85, 85, 0.78);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.app-footer p {
   margin: 2px 0;
   max-width: none;
 }
@@ -2539,14 +2556,6 @@ body[data-theme='dark'] .roof-zone-visualization {
   min-height: 320px;
 }
 
-.footer-note {
-  margin-top: 28px;
-  color: var(--muted);
-  font-size: 0.88rem;
-  opacity: 0.8;
-  text-align: center;
-}
-
 @media (max-width: 900px) {
   #app-banner {
     position: static;
@@ -2730,6 +2739,12 @@ body[data-theme='dark'] .roof-zone-visualization {
 
   .landing-credit {
     margin-top: 12px;
+    font-size: 0.8rem;
+    padding: 0 8px;
+  }
+
+  .app-footer {
+    margin-top: 14px;
     font-size: 0.8rem;
     padding: 0 8px;
   }
