@@ -592,7 +592,6 @@ function getStepContent(stepId) {
     'schritt-10': `
       <div class="step8-container">
         <div class="step8-text">
-          <span class="step-tag">Schritt 8</span>
           <h2 class="step-title">✍️ Übung</h2>
           <p>Wende dein Wissen jetzt selbst an.</p>
           <p>Erstelle für das Beispielgebäude einen Haftenverlegeplan.</p>
@@ -641,7 +640,6 @@ function getStepContent(stepId) {
     'dein-ablauf': `
       <div class="final-grid">
         <div class="step-copy">
-          <span class="step-tag">Schritt 9</span>
           <h2 class="step-title">✅ Checkliste</h2>
           <p>Jetzt geht es darum, aus dem Beispiel deinen eigenen klaren Arbeitsablauf abzuleiten. Nicht einzelne Zahlen sind am wichtigsten, sondern die Reihenfolge deiner Gedanken.</p>
           <p>Wenn du Aufgaben zum Haftenverlegeplan löst, solltest du die Schritte sicher und in sinnvoller Reihenfolge abrufen können.</p>
