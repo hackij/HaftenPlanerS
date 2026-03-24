@@ -330,20 +330,24 @@ body.dark-mode .hero-steps-label {
   min-width: 46px;
   min-height: 42px;
   padding: 10px 14px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.44), rgba(255, 255, 255, 0.18));
-  backdrop-filter: blur(6px);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.08)),
+    rgba(214, 227, 245, 0.12);
+  backdrop-filter: blur(10px);
   border-radius: 12px;
-  color: #1f2937;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: rgba(17, 24, 39, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   font-weight: 600;
-  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.1);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
   transition: all 0.25s ease;
   transform: scale(1);
 }
 
 .hero-steps .step-nav__button:hover,
 .hero-steps .step-nav__button:focus-visible {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.56), rgba(255, 255, 255, 0.28));
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.14)),
+    rgba(214, 227, 245, 0.18);
   color: #111827;
   outline: none;
   transform: scale(1.05);
@@ -2803,9 +2807,11 @@ body[data-theme='dark'] .roof-zone-visualization {
     padding: 7px 10px;
     border-radius: 10px;
     font-size: 1rem;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.16));
-    border-color: rgba(255, 255, 255, 0.26);
-    box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.08)),
+      rgba(214, 227, 245, 0.14);
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
   }
 
   .step-nav__item {
