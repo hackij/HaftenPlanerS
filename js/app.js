@@ -6,11 +6,6 @@ const labels = {
   'schritt-5': '5',
   'schritt-6': '6',
   'schritt-9': '7',
-  'schritt-10': '8',
-  'dein-ablauf': '9'
-};
-
-const navSubtitles = {
   'schritt-10': 'Übung',
   'dein-ablauf': 'Checkliste'
 };
@@ -24,9 +19,6 @@ function initNavigation(container, steps, onNavigate) {
   steps.forEach((step) => {
     const item = document.createElement('div');
     item.className = 'step-nav__item';
-    if (navSubtitles[step]) {
-      item.classList.add('step-nav__item--named');
-    }
 
     const button = document.createElement('button');
     button.type = 'button';
@@ -34,16 +26,11 @@ function initNavigation(container, steps, onNavigate) {
     button.dataset.step = step;
     button.textContent = labels[step] ?? step;
     button.addEventListener('click', () => onNavigate(step));
-
-    item.appendChild(button);
-
-    if (navSubtitles[step]) {
-      const subtitle = document.createElement('span');
-      subtitle.className = 'step-nav__subtitle';
-      subtitle.textContent = navSubtitles[step];
-      item.appendChild(subtitle);
+    if (step === 'schritt-10' || step === 'dein-ablauf') {
+      button.classList.add('step-nav__button--label');
+      item.classList.add('step-nav__item--named');
     }
-
+    item.appendChild(button);
     navRoot.appendChild(item);
   });
 }
@@ -376,7 +363,6 @@ function getStepContent(stepId) {
             <li><strong>Hinweis:</strong> Die Gebäudehöhe wird vom tiefsten Punkt des Gebäudes bis zum höchsten Punkt (z. B. First) gemessen.</li>
             <li><strong>Beispiel:</strong> Für unser Leitgebäude wird eine Gebäudehöhe von 9 m angesetzt.</li>
           </ul>
-          <div class="button-row">${nextButton('schritt-3')}</div>
         </div>
         <div class="step2-visual-layout graphic-container">
           <div class="simulation-wrapper">
@@ -406,6 +392,7 @@ function getStepContent(stepId) {
             <strong id="height-wind-label">Mittlere Windbelastung</strong>
             <p id="height-visual-note">Mit zunehmender Höhe nehmen Windgeschwindigkeit und Windsog zu. Das Dach wird stärker beansprucht.</p>
           </div>
+          <div class="button-row">${nextButton('schritt-3')}</div>
         </div>
       </div>
     `,

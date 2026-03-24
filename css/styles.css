@@ -292,7 +292,6 @@ body.dark-mode .hero-steps-label {
   display: grid;
   justify-items: center;
   align-content: start;
-  gap: 6px;
 }
 
 .hero-steps .step-nav__button {
@@ -326,16 +325,6 @@ body.dark-mode .hero-steps-label {
   box-shadow:
     0 0 0 2px rgba(255, 255, 255, 0.4),
     0 8px 20px rgba(59, 130, 246, 0.35);
-}
-
-.step-nav__subtitle {
-  min-height: 16px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.9);
-  text-shadow: 0 4px 12px rgba(15, 23, 42, 0.18);
 }
 
 body.dark .hero-steps .step-nav__button,
@@ -2730,17 +2719,19 @@ body[data-theme='dark'] .roof-zone-visualization {
   }
 
   .step-nav__item {
-    gap: 4px;
     width: 100%;
-  }
-
-  .step-nav__subtitle {
-    font-size: 0.62rem;
-    min-height: 14px;
   }
 
   .step-nav__item--named {
     grid-column: span 3;
+  }
+
+  .hero-steps .step-nav__button--label {
+    min-width: 0;
+    padding: 7px 8px;
+    font-size: 0.86rem;
+    line-height: 1.1;
+    white-space: nowrap;
   }
 
   .step-inner {
