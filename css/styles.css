@@ -2704,18 +2704,15 @@ body[data-theme='dark'] .roof-zone-visualization {
   }
 
   .hero-steps {
-    justify-content: flex-start;
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    align-items: start;
+    justify-content: stretch;
     gap: 6px;
     margin-bottom: 12px;
     flex-wrap: nowrap;
-    overflow-x: auto;
+    overflow: visible;
     padding-bottom: 4px;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  .hero-steps::-webkit-scrollbar {
-    display: none;
   }
 
   .hero-top {
@@ -2724,21 +2721,26 @@ body[data-theme='dark'] .roof-zone-visualization {
   }
 
   .hero-steps .step-nav__button {
-    min-width: 38px;
+    width: 100%;
+    min-width: 0;
     min-height: 38px;
     padding: 7px 10px;
     border-radius: 10px;
     font-size: 1rem;
-    flex: 0 0 auto;
   }
 
   .step-nav__item {
     gap: 4px;
+    width: 100%;
   }
 
   .step-nav__subtitle {
     font-size: 0.62rem;
     min-height: 14px;
+  }
+
+  .step-nav__item--named {
+    grid-column: span 3;
   }
 
   .step-inner {

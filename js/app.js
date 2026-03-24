@@ -24,6 +24,9 @@ function initNavigation(container, steps, onNavigate) {
   steps.forEach((step) => {
     const item = document.createElement('div');
     item.className = 'step-nav__item';
+    if (navSubtitles[step]) {
+      item.classList.add('step-nav__item--named');
+    }
 
     const button = document.createElement('button');
     button.type = 'button';
@@ -441,12 +444,12 @@ function getStepContent(stepId) {
           <p>Diese Strömungseffekte erzeugen einen Windsog, der an der Dachkante besonders stark wirkt und die Dachdeckung nach oben abheben kann.</p>
           <p>👉 <strong>Bedeutung für die Praxis:</strong> Dachränder und insbesondere Eckbereiche sind stärker belastet als die übrige Dachfläche. Damit die Dachdeckung sicher befestigt ist, müssen in diesen Bereichen die Haften enger gesetzt werden.</p>
           <p class="callout">Merke: Dachkante = hohe Windsogbelastung → kleinere Haftabstände erforderlich</p>
-          <div class="button-row">${nextButton('schritt-5')}</div>
         </div>
         <div class="step4-graphic">
           <img src="Windsog_am_Pultdach.jpg" alt="Windsog am Pultdach" />
         </div>
       </div>
+      <div class="button-row">${nextButton('schritt-5')}</div>
     `,
     'schritt-5': `
       <div class="step-grid step-grid--step5">
