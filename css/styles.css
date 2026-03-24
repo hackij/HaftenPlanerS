@@ -327,6 +327,28 @@ body.dark-mode .hero-steps-label {
     0 8px 20px rgba(59, 130, 246, 0.35);
 }
 
+.hero-steps .step-nav__button--label {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.18), rgba(44, 92, 197, 0.16));
+  color: #174a7a;
+  border: 1px solid rgba(44, 92, 197, 0.16);
+  font-weight: 800;
+  box-shadow: 0 8px 20px rgba(44, 92, 197, 0.1);
+}
+
+.hero-steps .step-nav__button--label:hover,
+.hero-steps .step-nav__button--label:focus-visible {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.26), rgba(44, 92, 197, 0.22));
+  color: #123f67;
+}
+
+.hero-steps .step-nav__button--label.is-active {
+  background: linear-gradient(135deg, #14b8a6, #2c5cc5);
+  color: #fff;
+  box-shadow:
+    0 0 0 2px rgba(255, 255, 255, 0.45),
+    0 10px 24px rgba(20, 184, 166, 0.28);
+}
+
 body.dark .hero-steps .step-nav__button,
 body.dark-mode .hero-steps .step-nav__button {
   background: rgba(30, 30, 30, 0.7);
