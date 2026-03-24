@@ -72,10 +72,50 @@ function bindCalculationEvents(stepId, navigateTo) {
   }
 
   if (stepId === 'schritt-10') {
+    bindExerciseIntroChecks();
     bindPracticeCheck();
     bindHaftenCheck();
   }
 
+}
+
+function bindExerciseIntroChecks() {
+  const roofButton = document.getElementById('check-roof-form');
+  const roofInput = document.getElementById('roof-form-input');
+  const roofFeedback = document.getElementById('roof-form-feedback');
+
+  if (roofButton && roofInput && roofFeedback) {
+    roofButton.addEventListener('click', () => {
+      const value = roofInput.value.trim().toLowerCase();
+      const normalized = value.replace(/\s+/g, ' ');
+      const isCorrect = normalized === 'pultdach';
+
+      roofFeedback.textContent = isCorrect
+        ? '✅ Richtig. Das Referenzgebäude hat ein Pultdach.'
+        : '❌ Noch nicht ganz. Schau dir die Dachfläche noch einmal genau an.';
+      roofFeedback.className = `input-feedback ${isCorrect ? 'is-success' : 'is-error'}`;
+    });
+  }
+
+  const zoneButton = document.getElementById('check-windzone');
+  const zoneFeedback = document.getElementById('windzone-feedback');
+
+  if (zoneButton && zoneFeedback) {
+    zoneButton.addEventListener('click', () => {
+      const selected = document.querySelector('input[name="windzone-choice"]:checked');
+      if (!selected) {
+        zoneFeedback.textContent = 'Bitte wähle zuerst eine Windzone aus.';
+        zoneFeedback.className = 'input-feedback is-error';
+        return;
+      }
+
+      const isCorrect = selected.value === '1';
+      zoneFeedback.textContent = isCorrect
+        ? '✅ Genau. Das Beispielgebäude befindet sich in Windzone 1.'
+        : '❌ Noch nicht richtig. Für Bayreuth ist in diesem Lernbeispiel Windzone 1 maßgebend.';
+      zoneFeedback.className = `input-feedback ${isCorrect ? 'is-success' : 'is-error'}`;
+    });
+  }
 }
 
 function calculateE(h, b) {
@@ -594,16 +634,56 @@ function getStepContent(stepId) {
         <div class="step8-text">
           <h2 class="step-title">✍️ Übung</h2>
           <p>Wende dein Wissen jetzt selbst an.</p>
-          <p>Erstelle für das Beispielgebäude einen Haftenverlegeplan.</p>
-          <p>Nutze dazu die folgende Übung und überprüfe anschließend deine Ergebnisse.</p>
+          <p>Erstelle für das Referenzgebäude einen Haftenverlegeplan.</p>
+          <p>Nutze die folgenden Angaben als Aufgabenstellung und bearbeite die Schritte nacheinander.</p>
+        </div>
+        <div class="exercise-brief">
+          <div class="exercise-brief__image">
+            <img src="assets/images/pultdach-übung.png" alt="Referenzgebäude für die Übung" />
+          </div>
+          <div class="exercise-brief__facts card">
+            <h3>Referenzgebäude</h3>
+            <dl class="exercise-facts">
+              <div><dt>Standort</dt><dd>Bayreuth</dd></div>
+              <div><dt>Gebäudelänge</dt><dd>10 m</dd></div>
+              <div><dt>Gebäudebreite</dt><dd>10 m</dd></div>
+              <div><dt>Gebäudehöhe</dt><dd>9 m</dd></div>
+              <div><dt>Dachneigung</dt><dd>20°</dd></div>
+              <div><dt>Scharbreite</dt><dd>590 mm</dd></div>
+            </dl>
+          </div>
+        </div>
+        <div class="input-section exercise-question">
+          <h3>1. Dachform bestimmen</h3>
+          <p>Welche Dachform hat das Referenzgebäude?</p>
+          <label for="roof-form-input">Dachform</label>
+          <input type="text" id="roof-form-input" placeholder="z. B. ..." autocomplete="off" />
+          <button id="check-roof-form" type="button">Überprüfen</button>
+          <p id="roof-form-feedback" class="input-feedback"></p>
+        </div>
+        <div class="input-section exercise-question">
+          <h3>2. Windzone bestimmen</h3>
+          <p>In welcher Windzone befindet sich das Gebäude?</p>
+          <div class="choice-group" role="radiogroup" aria-label="Windzone auswählen">
+            <label class="choice-option"><input type="radio" name="windzone-choice" value="1" /> <span>WZ 1</span></label>
+            <label class="choice-option"><input type="radio" name="windzone-choice" value="2" /> <span>WZ 2</span></label>
+            <label class="choice-option"><input type="radio" name="windzone-choice" value="3" /> <span>WZ 3</span></label>
+            <label class="choice-option"><input type="radio" name="windzone-choice" value="4" /> <span>WZ 4</span></label>
+          </div>
+          <button id="check-windzone" type="button">Überprüfen</button>
+          <p id="windzone-feedback" class="input-feedback"></p>
         </div>
         <div class="step8-h5p">
+          <div class="exercise-section-heading">
+            <h3>3. Haftbereiche festlegen</h3>
+            <p>Definieren Sie die Haftbereiche am Dach.</p>
+          </div>
           <iframe src="Festlegung_der_Randbereiche.html" class="h5p-frame" title="Übung zur Festlegung der Randbereiche"></iframe>
         </div>
         <div class="step8-input">
           <div class="input-group">
-            <h3>Randbereiche berechnen</h3>
-            <p>Bestimme für das Beispielgebäude die Breite und Länge der Randbereiche.</p>
+            <h3>4. Randbereiche berechnen</h3>
+            <p>Bestimme für das Referenzgebäude die Breite und Länge der Randbereiche.</p>
             <label>Breite des Randbereichs (e / 10)</label>
             <input type="number" id="input-width" inputmode="decimal" />
             <label>Länge des Randbereichs (e / 4)</label>
@@ -612,8 +692,8 @@ function getStepContent(stepId) {
             <p id="result-feedback"></p>
           </div>
           <div class="input-section">
-            <h3>Haftabstände bestimmen</h3>
-            <p>Trage die richtigen Haftabstände für die jeweiligen Dachbereiche ein:</p>
+            <h3>5. Haftabstände bestimmen</h3>
+            <p>Trage die richtigen Haftabstände für die jeweiligen Dachbereiche des Referenzgebäudes ein:</p>
             <div class="input-grid input-grid--haften">
               <label>Fhoch:
                 <input type="number" id="fhoch" placeholder="mm" inputmode="numeric" />
@@ -1055,18 +1135,9 @@ const exampleDataByStep = {
 
 function renderStep(stepId) {
   if (!stepContent) return;
-  const exampleBar = document.getElementById('example-bar');
 
   state.activeStep = stepId;
   setActiveStep(stepId);
-
-  const hideExample = stepId === 'schritt-10' || stepId === 'dein-ablauf';
-
-  if (exampleBar) {
-    exampleBar.classList.toggle('hidden', hideExample);
-  }
-
-  stepContent.classList.toggle('no-example', hideExample);
 
   stepContent.classList.remove('fade-enter');
   stepContent.innerHTML = `<div class="step"><div class="step-inner">${getStepContent(stepId)}</div></div>`;
@@ -1076,7 +1147,6 @@ function renderStep(stepId) {
   bindCalculationEvents(stepId, navigateTo);
   setupVisualizations(stepId);
   setupEmbeddedExercises();
-  updateExampleBox(stepId);
 }
 
 function navigateTo(stepId) {
