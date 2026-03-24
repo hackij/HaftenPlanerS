@@ -1208,10 +1208,28 @@ function setupEmbeddedExercises() {
         const doc = frame.contentDocument;
         if (!doc) return;
 
-        const rootHeight = doc.documentElement ? doc.documentElement.scrollHeight : 0;
-        const bodyHeight = doc.body ? doc.body.scrollHeight : 0;
-        const nextHeight = Math.max(rootHeight, bodyHeight, 920);
-        frame.style.height = `${nextHeight + 16}px`;
+        const bodyTop = doc.body ? doc.body.getBoundingClientRect().top : 0;
+        const measuredNodes = [
+          doc.querySelector('.h5p-container'),
+          doc.querySelector('.h5p-content'),
+          doc.body?.firstElementChild,
+          doc.body
+        ].filter(Boolean);
+
+        if (!measuredNodes.length) return;
+
+        const contentHeight = measuredNodes.reduce((maxHeight, node) => {
+          const rect = node.getBoundingClientRect();
+          const visualHeight = Math.ceil(rect.bottom - bodyTop);
+          const scrollHeight = node.scrollHeight || 0;
+          return Math.max(maxHeight, visualHeight, scrollHeight);
+        }, 0);
+
+        const viewportWidth = window.innerWidth || 1280;
+        const minimumHeight = viewportWidth <= 768 ? 520 : 700;
+        const maximumHeight = viewportWidth <= 768 ? 760 : 900;
+        const nextHeight = Math.min(Math.max(contentHeight + 20, minimumHeight), maximumHeight);
+        frame.style.height = `${nextHeight}px`;
       } catch (error) {
         // Same-origin only; if access fails we keep the CSS fallback height.
       }
