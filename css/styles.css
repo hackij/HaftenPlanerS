@@ -94,6 +94,28 @@ button:hover {
   position: relative;
 }
 
+.banner-logo {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  z-index: 3;
+  width: clamp(88px, 10vw, 138px);
+  height: auto;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 18px rgba(15, 23, 42, 0.14));
+}
+
+.banner-logo--welcome {
+  top: 16px;
+  right: 18px;
+}
+
+.banner-logo--app {
+  top: 14px;
+  right: 18px;
+}
+
 #welcome-banner {
   width: 100%;
   max-width: 1200px;
@@ -140,6 +162,10 @@ button:hover {
   max-width: none;
 }
 
+.landing-credit p:last-child {
+  font-size: 0.92em;
+}
+
 .app-footer {
   width: min(100%, 1180px);
   margin-top: 10px;
@@ -154,6 +180,10 @@ button:hover {
 .app-footer p {
   margin: 2px 0;
   max-width: none;
+}
+
+.app-footer p:last-child {
+  font-size: 0.92em;
 }
 
 .app-topbar {
@@ -247,7 +277,7 @@ p {
 
 .hero-copy {
   margin-bottom: 12px;
-  max-width: 760px;
+  max-width: min(760px, calc(100% - 190px));
   padding-top: 6px;
 }
 
@@ -331,14 +361,14 @@ body.dark-mode .hero-steps-label {
   min-height: 42px;
   padding: 10px 14px;
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.08)),
-    rgba(214, 227, 245, 0.12);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.05)),
+    rgba(187, 204, 224, 0.18);
   backdrop-filter: blur(10px);
   border-radius: 12px;
   color: rgba(17, 24, 39, 0.96);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(238, 244, 252, 0.34);
   font-weight: 600;
-  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 22px rgba(58, 72, 89, 0.08);
   transition: all 0.25s ease;
   transform: scale(1);
 }
@@ -346,8 +376,8 @@ body.dark-mode .hero-steps-label {
 .hero-steps .step-nav__button:hover,
 .hero-steps .step-nav__button:focus-visible {
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.14)),
-    rgba(214, 227, 245, 0.18);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.08)),
+    rgba(187, 204, 224, 0.24);
   color: #111827;
   outline: none;
   transform: scale(1.05);
@@ -2729,6 +2759,12 @@ body[data-theme='dark'] .roof-zone-visualization {
     border-radius: 18px;
   }
 
+  .banner-logo {
+    width: clamp(72px, 22vw, 108px);
+    top: 10px;
+    right: 10px;
+  }
+
   .start-button {
     top: auto;
     bottom: 14px;
@@ -2749,6 +2785,10 @@ body[data-theme='dark'] .roof-zone-visualization {
     margin-top: 12px;
     font-size: 0.8rem;
     padding: 0 8px;
+  }
+
+  .landing-credit p:last-child {
+    font-size: 0.88em;
   }
 
   .app-footer {
@@ -2773,6 +2813,7 @@ body[data-theme='dark'] .roof-zone-visualization {
     max-width: 100%;
     margin-bottom: 10px;
     padding-top: 0;
+    padding-right: 88px;
   }
 
   .hero-title {
@@ -2810,10 +2851,10 @@ body[data-theme='dark'] .roof-zone-visualization {
     border-radius: 10px;
     font-size: 1rem;
     background:
-      linear-gradient(135deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.08)),
-      rgba(214, 227, 245, 0.14);
-    border-color: rgba(255, 255, 255, 0.18);
-    box-shadow: 0 10px 18px rgba(15, 23, 42, 0.06);
+      linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.04)),
+      rgba(187, 204, 224, 0.2);
+    border-color: rgba(238, 244, 252, 0.28);
+    box-shadow: 0 8px 16px rgba(58, 72, 89, 0.06);
   }
 
   .step-nav__item {
@@ -2897,6 +2938,10 @@ body[data-theme='dark'] .roof-zone-visualization {
 
   .app-footer p {
     margin: 1px 0;
+  }
+
+  .app-footer p:last-child {
+    font-size: 0.86em;
   }
 }
 
