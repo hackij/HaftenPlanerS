@@ -107,13 +107,16 @@ button:hover {
 }
 
 .banner-logo--welcome {
-  top: 16px;
-  right: 18px;
+  top: 10px;
+  right: 10px;
+  width: clamp(76px, 8vw, 120px);
 }
 
 .banner-logo--app {
   top: 14px;
   right: 18px;
+  mix-blend-mode: multiply;
+  opacity: 0.98;
 }
 
 #welcome-banner {
@@ -2760,6 +2763,18 @@ body[data-theme='dark'] .roof-zone-visualization {
   }
 
   .banner-logo {
+    width: clamp(72px, 22vw, 108px);
+    top: 10px;
+    right: 10px;
+  }
+
+  .banner-logo--welcome {
+    width: clamp(58px, 18vw, 86px);
+    top: 8px;
+    right: 8px;
+  }
+
+  .banner-logo--app {
     width: clamp(72px, 22vw, 108px);
     top: 10px;
     right: 10px;
