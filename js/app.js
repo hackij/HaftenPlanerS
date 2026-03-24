@@ -634,15 +634,15 @@ function getStepContent(stepId) {
         <div class="step8-text">
           <h2 class="step-title">✍️ Übung</h2>
           <p>Wende dein Wissen jetzt selbst an.</p>
-          <p>Erstelle für das Referenzgebäude einen Haftenverlegeplan.</p>
-          <p>Nutze die folgenden Angaben als Aufgabenstellung und bearbeite die Schritte nacheinander.</p>
+          <p>Erstelle für das folgende Gebäude einen Haftenverlegeplan.</p>
+          <p>Folgende Details zum Gebäude sind bekannt.</p>
         </div>
         <div class="exercise-brief">
           <div class="exercise-brief__image">
             <img src="assets/images/pultdach-übung.png" alt="Referenzgebäude für die Übung" />
           </div>
           <div class="exercise-brief__facts card">
-            <h3>Referenzgebäude</h3>
+            <h3>Gebäudedetails</h3>
             <dl class="exercise-facts">
               <div><dt>Standort</dt><dd>Bayreuth</dd></div>
               <div><dt>Gebäudelänge</dt><dd>10 m</dd></div>
@@ -1281,9 +1281,7 @@ function setupEmbeddedExercises() {
         const bodyTop = doc.body ? doc.body.getBoundingClientRect().top : 0;
         const measuredNodes = [
           doc.querySelector('.h5p-container'),
-          doc.querySelector('.h5p-content'),
-          doc.body?.firstElementChild,
-          doc.body
+          doc.querySelector('.h5p-content')
         ].filter(Boolean);
 
         if (!measuredNodes.length) return;
@@ -1296,8 +1294,8 @@ function setupEmbeddedExercises() {
         }, 0);
 
         const viewportWidth = window.innerWidth || 1280;
-        const minimumHeight = viewportWidth <= 768 ? 520 : 700;
-        const maximumHeight = viewportWidth <= 768 ? 760 : 900;
+        const minimumHeight = viewportWidth <= 768 ? 420 : 560;
+        const maximumHeight = viewportWidth <= 768 ? 620 : 760;
         const nextHeight = Math.min(Math.max(contentHeight + 20, minimumHeight), maximumHeight);
         frame.style.height = `${nextHeight}px`;
       } catch (error) {
