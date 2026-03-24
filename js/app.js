@@ -1077,6 +1077,7 @@ function renderStep(stepId) {
   bindGlobalStepControls();
   bindCalculationEvents(stepId, navigateTo);
   setupVisualizations(stepId);
+  setupEmbeddedExercises();
   updateExampleBox(stepId);
 }
 
@@ -1198,6 +1199,41 @@ function initExampleLightbox() {
   });
 
   lightbox.dataset.bound = 'true';
+}
+
+function setupEmbeddedExercises() {
+  document.querySelectorAll('.h5p-frame').forEach((frame) => {
+    if (frame.dataset.enhanced === 'true') return;
+
+    const resizeFrame = () => {
+      try {
+        const doc = frame.contentDocument;
+        if (!doc) return;
+
+        const rootHeight = doc.documentElement ? doc.documentElement.scrollHeight : 0;
+        const bodyHeight = doc.body ? doc.body.scrollHeight : 0;
+        const nextHeight = Math.max(rootHeight, bodyHeight, 920);
+        frame.style.height = `${nextHeight + 16}px`;
+      } catch (error) {
+        // Same-origin only; if access fails we keep the CSS fallback height.
+      }
+    };
+
+    frame.setAttribute('scrolling', 'no');
+    frame.style.overflow = 'hidden';
+    frame.addEventListener('load', () => {
+      resizeFrame();
+      setTimeout(resizeFrame, 120);
+      setTimeout(resizeFrame, 360);
+    });
+
+    if (frame.contentDocument?.readyState === 'complete') {
+      resizeFrame();
+      setTimeout(resizeFrame, 120);
+    }
+
+    frame.dataset.enhanced = 'true';
+  });
 }
 
 function updateExampleBox(stepId) {
