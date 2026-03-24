@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Haftenverlegeplan verstehen</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <section id="landing-page" class="landing-page">
+      <div class="image-container">
+        <div id="welcome-banner" aria-hidden="true">
+          <img
+            class="welcome-hero-image"
+            src="assets/images/welcome.jpg"
+            alt="HaftenPlaner Startbild"
+          />
+        </div>
+        <button id="enterApp" class="start-button" type="button">Los geht's!</button>
+      </div>
+    </section>
+
+    <div id="app-content" class="hidden">
+      <div class="app-shell">
+        <div id="app-banner" class="hero-banner" aria-hidden="true">
+          <div class="hero-overlay">
+            <div class="hero-copy">
+              <h1 class="hero-title">HaftenPlaner</h1>
+              <p class="hero-subtitle">
+                Schritt für Schritt zum Haftenverlegeplan am Beispiel
+                <span class="hero-subtitle__accent">Pultdach</span>
+              </p>
+            </div>
+            <div class="hero-top">
+              <span class="hero-steps-label">Schritte</span>
+            </div>
+            <nav class="hero-steps" aria-label="Lernschritte" id="step-nav"></nav>
+            <div id="example-bar" aria-label="Aktuelles Beispielgebäude">
+              <span class="example-label">Beispielgebäude:</span>
+              <span id="ex-roof" class="chip">Pultdach</span>
+              <span id="ex-windzone" class="chip"></span>
+              <span id="ex-height" class="chip"></span>
+              <span id="ex-schar" class="chip"></span>
+              <span id="ex-pitch" class="chip"></span>
+              <span id="ex-e" class="chip"></span>
+              <span id="ex-quarter" class="chip"></span>
+              <span id="ex-tenth" class="chip"></span>
+            </div>
+          </div>
+        </div>
+
+        <main class="main-content">
+          <section class="step-content content-card fade-enter" id="step-content" aria-live="polite"></section>
+        </main>
+      </div>
+    </div>
+
+    <div id="image-lightbox" class="image-lightbox" aria-hidden="true">
+      <div class="image-lightbox__backdrop" data-lightbox-close="true"></div>
+      <div class="image-lightbox__dialog" role="dialog" aria-modal="true" aria-label="Bildansicht">
+        <button id="image-lightbox-close" class="image-lightbox__close" type="button" aria-label="Bild schließen">
+          <span class="image-lightbox__close-glyph" aria-hidden="true">×</span>
+        </button>
+        <img id="image-lightbox-preview" class="image-lightbox__image" alt="" />
+      </div>
+    </div>
+
+    <div id="example-lightbox" class="image-lightbox" aria-hidden="true">
+      <div class="image-lightbox__backdrop" data-example-close="true"></div>
+      <div class="image-lightbox__dialog example-lightbox__dialog" role="dialog" aria-modal="true" aria-label="Beispielansicht">
+        <button id="example-lightbox-close" class="image-lightbox__close" type="button" aria-label="Beispiel schließen">
+          <span class="image-lightbox__close-glyph" aria-hidden="true">×</span>
+        </button>
+        <div id="example-lightbox-content" class="example-lightbox__content"></div>
+      </div>
+    </div>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>
