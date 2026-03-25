@@ -550,7 +550,16 @@ function getStepContent(stepId) {
             <div class="formula-box"><strong>Formel 2</strong><div class="formula">e = b</div></div>
           </div>
           <p>Anschließend werden beide Ergebnisse verglichen. 👉 Der kleinere Wert ist maßgebend und wird als Maß <strong>e</strong> verwendet.</p>
-          <p>Mit dem Maß <strong>e</strong> lassen sich nun die Randbereiche genauer bestimmen: Die Länge des Randbereichs ergibt sich aus <strong>e / 4</strong>, die Breite des Randbereichs aus <strong>e / 10</strong>. Dazu wird der ermittelte Wert für <strong>e</strong> einfach einmal durch 4 und einmal durch 10 geteilt.</p>
+          <div class="step6-breakdown">
+            <div class="hinweis step6-breakdown__item">
+              <p><strong>Länge des Randbereichs:</strong> Die Länge des Randbereichs ergibt sich aus <strong>e / 4</strong>.</p>
+              <p>Dazu wird der ermittelte Wert für <strong>e</strong> einfach einmal durch <strong>4</strong> geteilt.</p>
+            </div>
+            <div class="hinweis step6-breakdown__item">
+              <p><strong>Breite des Randbereichs:</strong> Die Breite des Randbereichs ergibt sich aus <strong>e / 10</strong>.</p>
+              <p>Dazu wird der ermittelte Wert für <strong>e</strong> einfach einmal durch <strong>10</strong> geteilt.</p>
+            </div>
+          </div>
           <p>👉 <strong>Bedeutung für die Praxis:</strong> Mit dem ermittelten e-Wert können im nächsten Schritt die Randbereiche am Dach festgelegt werden. Diese bilden die Grundlage für die Auswahl der richtigen Haftabstände.</p>
           <div class="button-row">${nextButton('schritt-9')}</div>
         </div>

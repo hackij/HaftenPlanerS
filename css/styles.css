@@ -1930,6 +1930,21 @@ input[type='range'] {
   max-width: 650px;
 }
 
+.step6-breakdown {
+  display: grid;
+  gap: 14px;
+  margin: 18px 0 10px;
+}
+
+.step6-breakdown__item {
+  max-width: none;
+  margin: 0;
+}
+
+.step6-breakdown__item p:last-child {
+  margin-bottom: 0;
+}
+
 .achtung,
 .attention-box {
   background: #fff3cd;
