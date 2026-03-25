@@ -2084,8 +2084,8 @@ body.dark-mode .step4-graphic {
 .exercise-brief__image,
 .exercise-brief__facts {
   background: white;
-  border-radius: 18px;
-  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
 }
 
 .exercise-brief__image {
@@ -2114,9 +2114,10 @@ body.dark-mode .step4-graphic {
 }
 
 .exercise-brief__facts {
-  padding: 22px;
+  padding: 18px 20px;
   max-width: 920px;
   margin: 0 auto;
+  border: 1px solid rgba(207, 221, 237, 0.8);
 }
 
 .exercise-brief__facts h3,

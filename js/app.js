@@ -635,7 +635,7 @@ function getStepContent(stepId) {
           <dl class="exercise-facts">
             <div><dt>Standort</dt><dd>Bayreuth</dd></div>
             <div><dt>Gebäudelänge</dt><dd>10 m</dd></div>
-            <div><dt>Gebäudebreite</dt><dd>10 m</dd></div>
+            <div><dt>Gebäudebreite</dt><dd>8 m</dd></div>
             <div><dt>Gebäudehöhe</dt><dd>9 m</dd></div>
             <div><dt>Dachneigung</dt><dd>20°</dd></div>
             <div><dt>Scharbreite</dt><dd>590 mm</dd></div>
